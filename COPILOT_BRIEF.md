@@ -4,7 +4,7 @@
 
 Build a polished, responsive, frontend-only personal website that
 presents the owner's learning journey, writing, software projects,
-travel experiences, and professional profile.
+creative interests, and professional profile.
 
 The website is an initial static prototype. It should be quick to build,
 easy to understand, easy to publish, and structured so it can evolve in
@@ -12,8 +12,10 @@ later phases. The owner may add a backend, React, Node.js, richer
 interactions, or a private workspace after the first version is
 complete. Do not implement those future systems now.
 
-**Temporary site identity** - Brand/name: `YOUR_NAME_OR_BRAND` -
-Tagline: `YOUR_TAGLINE` - Short introduction: `YOUR_INTRODUCTION`
+**Site identity** - Brand/name: Nurmuhammad Abdujalilov -
+Role: Software Engineering Student - Location: South Korea -
+Interests: Artificial Intelligence, Software Engineering, Web Development,
+Algorithms, and Technology.
 
 Keep these values easy to replace. Do not invent a permanent brand name,
 biography, achievements, credentials, or personal facts.
@@ -36,7 +38,7 @@ biography, achievements, credentials, or personal facts.
 -   Use static content directly in HTML. Do not fetch content from an
     external data source.
 -   Do not invent real personal information, project achievements, job
-    experience, qualifications, travel details, social profile URLs, or
+    experience, qualifications, social profile URLs, or
     article claims. Use clearly labeled placeholders where information
     is missing.
 -   Do not create controls that appear functional but do nothing. Either
@@ -112,9 +114,8 @@ Build these six core public pages:
 1.  `index.html` --- Home
 2.  `blog.html` --- Blog listing
 3.  `projects.html` --- Projects portfolio
-4.  `travel.html` --- Travel stories and photography
-5.  `about.html` --- About Me
-6.  `cv.html` --- CV / professional profile
+4.  `about.html` --- About Me
+5.  `cv.html` --- CV / professional profile
 
 Also create `article.html` as a reusable example article page/template.
 Treat this as a shared content template rather than an additional main
@@ -132,14 +133,14 @@ Purpose: Give visitors a quick, clear understanding of who the owner is
 and what they make, learn, write about, and experience.
 
 Include: - Shared header with editable brand text/logo and navigation
-links to Home, Blog, Projects, Travel, About Me, and CV. - Theme toggle
+links to Home, Blog, Projects, About Me, and CV. - Theme toggle
 and responsive mobile navigation. - Minimal hero section with a short
 introduction, a role/interests line, and one or two clear links such as
 "Read the Blog" and "Explore Projects." - Optional portrait placeholder
 only if appropriate; do not invent or fetch a real portrait of the
 owner. - A small featured/recent writing section. - A selected projects
-section. - A travel/photo highlights section. - A concise About Me
-preview. - Social links for GitHub, Instagram, and LinkedIn using
+section. - A concise About Me preview. - Social links for GitHub,
+Instagram, and LinkedIn using
 clearly marked placeholders until the owner provides real URLs. - Shared
 footer with navigation and social links.
 
@@ -200,23 +201,7 @@ point to a real supplied destination. Otherwise label it as a
 placeholder or omit it. - Make it easy to add, remove, or update
 projects without changing the overall design.
 
-### 4.5 `travel.html` --- Travel and Photo Stories
-
-Purpose: Keep travel experiences separate from technical writing.
-
-Include: - Page title and short editable introduction. - A responsive
-photo/story grid or a simple set of travel cards. - Each entry can
-contain a location placeholder, date or period placeholder, photos,
-captions, and a short story. - Use local images already in the
-repository when appropriate. - If no suitable images exist, use tasteful
-neutral placeholders; do not insert broken image links or imply that
-stock images are the owner's personal photographs. - Provide meaningful
-alt text for real content images and empty alt text for purely
-decorative images. - Make it easy to add more trips and stories later. -
-Do not invent places the owner has visited or personal travel
-experiences.
-
-### 4.6 `about.html` --- About Me
+### 4.5 `about.html` --- About Me
 
 Purpose: Explain the owner's background, interests, and ongoing learning
 journey in a personal but well-organized way.
@@ -251,7 +236,7 @@ certifications, or achievements.
 ## 5. Shared Navigation and Social Links
 
 Use the same navigation structure across the public pages: - Home -
-Blog - Projects - Travel - About Me - CV
+Blog - Projects - About Me - CV
 
 Requirements: - Highlight the current page. - Use working local links
 for all pages that exist. - Collapse navigation on smaller screens using
@@ -275,7 +260,6 @@ personal-website/
 ├── blog.html
 ├── article.html
 ├── projects.html
-├── travel.html
 ├── about.html
 ├── cv.html
 ├── assets/
@@ -353,7 +337,7 @@ Support mobile, tablet, laptop, and desktop screen widths.
 -   Use editable placeholders for the brand name, tagline, biography,
     dates, profile links, and other missing personal details.
 -   Do not invent the owner's personal history, credentials,
-    accomplishments, projects, travel experiences, or social URLs.
+    accomplishments, projects, or social URLs.
 -   Use clearly fictional sample titles and summaries when sample
     content is necessary to demonstrate layout.
 -   Mark sample content in a way that is easy for the owner to identify
@@ -430,8 +414,7 @@ Follow this sequence and report progress at each major stage.
 
 1.  Implement `blog.html` and the reusable `article.html` template.
 2.  Implement `projects.html`.
-3.  Implement `travel.html`.
-4.  Implement `about.html` and `cv.html`.
+3.  Implement `about.html` and `cv.html`.
 5.  Keep shared visual patterns consistent and all local navigation
     links valid.
 
@@ -464,8 +447,8 @@ Do not claim that a test was performed unless it was actually performed.
 
 The first frontend phase is complete when:
 
--   All six core public pages exist: Home, Blog, Projects, Travel, About
-    Me, and CV.
+-   All five core public pages exist: Home, Blog, Projects, About Me,
+    and CV.
 -   The reusable `article.html` template exists and is linked from the
     blog listing.
 -   Pages share a consistent header, footer, navigation, typography, and

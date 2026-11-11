@@ -9,7 +9,6 @@ from the official CDN, custom CSS, and a small vanilla JavaScript file.
 - `blog.html` — article listing
 - `article.html` — reusable sample article template
 - `projects.html` — project portfolio
-- `travel.html` — travel and photo stories
 - `about.html` — personal background and learning journey
 - `cv.html` — professional profile
 - `assets/css/styles.css` — design tokens, themes, responsive components
@@ -30,10 +29,9 @@ so the site also works from a GitHub Pages project subdirectory.
 
 ## Editing content
 
-Replace `YOUR_NAME_OR_BRAND`, `YOUR_TAGLINE`, `YOUR_INTRODUCTION`, and the other
-uppercase placeholders with information you want to publish. Replace the
-fictional sample cards and article text with verified personal content.
-Social profiles remain non-clickable placeholders until real URLs are supplied.
+Personal identity, contact details, social URLs, and the site tagline are
+defined in `assets/js/config.js`. Replace the fictional sample cards and
+article text with verified personal content as the site grows.
 To publish another article, copy `article.html`, rename it, update its metadata
 and content, then link it from `blog.html`.
 
@@ -45,7 +43,7 @@ local PDF was supplied; its print-friendly layout can be saved from the browser.
 
 Commit the static files to a repository and enable GitHub Pages for the chosen
 branch and folder in repository settings. Do not use root-relative paths or
-server-side routing. Confirm the six navigation pages and article template on
+server-side routing. Confirm the five navigation pages and article template on
 the published project-site URL.
 
 ## Phase 1 boundaries
