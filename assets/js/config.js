@@ -3,8 +3,7 @@ const SITE_CONFIG = {
     identity: {
         name: "Nurmuhammad Abdujalilov",
         title: "Software Engineering Student",
-        introduction:
-            "I am a Software Engineering student in South Korea exploring artificial intelligence, software development, web development, algorithms, and technology.",
+        introduction: "I build software, explore AI, and document what I learn.",
         location: "South Korea",
         interests: [
             "Artificial Intelligence",

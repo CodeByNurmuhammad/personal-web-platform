@@ -63,5 +63,133 @@
     });
   });
 
+  function initFeaturedCarousel() {
+    const carousel = document.querySelector("[data-carousel]");
+    const viewport = carousel?.querySelector(".carousel-viewport");
+    const track = carousel?.querySelector("[data-carousel-track]");
+    const previousButton = carousel?.querySelector("[data-carousel-prev]");
+    const nextButton = carousel?.querySelector("[data-carousel-next]");
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    if (!carousel || !viewport || !track || track.children.length < 2) return;
+
+    const pauseReasons = new Set();
+    let offset = 0;
+    let lastTimestamp = 0;
+    let pointerStartX = 0;
+    let pointerStartOffset = 0;
+    let activePointerId = null;
+    let dragged = false;
+    let suppressClick = false;
+
+    function getStep() {
+      const firstSlide = track.firstElementChild;
+      if (!firstSlide) return 0;
+      const gap = parseFloat(window.getComputedStyle(track).columnGap) || 0;
+      return firstSlide.getBoundingClientRect().width + gap;
+    }
+
+    function render() {
+      track.style.transform = `translate3d(${-offset}px, 0, 0)`;
+    }
+
+    function normalizeOffset() {
+      const step = getStep();
+      if (!step) return;
+      while (offset >= step) {
+        offset -= step;
+        track.append(track.firstElementChild);
+      }
+      while (offset < 0) {
+        track.prepend(track.lastElementChild);
+        offset += step;
+      }
+    }
+
+    function move(direction) {
+      offset += direction * getStep();
+      normalizeOffset();
+      render();
+    }
+
+    function animate(timestamp) {
+      if (!lastTimestamp) lastTimestamp = timestamp;
+      const elapsed = Math.min(timestamp - lastTimestamp, 100) / 1000;
+      lastTimestamp = timestamp;
+
+      if (pauseReasons.size === 0) {
+        offset += elapsed * 14;
+        normalizeOffset();
+        render();
+      }
+
+      window.requestAnimationFrame(animate);
+    }
+
+    function pause(reason) {
+      pauseReasons.add(reason);
+    }
+
+    function resume(reason) {
+      pauseReasons.delete(reason);
+    }
+
+    carousel.addEventListener("mouseenter", () => pause("hover"));
+    carousel.addEventListener("mouseleave", () => resume("hover"));
+    viewport.addEventListener("pointerdown", (event) => {
+      if (event.pointerType === "mouse" && event.button !== 0) return;
+      activePointerId = event.pointerId;
+      pointerStartX = event.clientX;
+      pointerStartOffset = offset;
+      dragged = false;
+      pause("drag");
+      viewport.classList.add("is-dragging");
+      viewport.setPointerCapture(event.pointerId);
+    });
+    viewport.addEventListener("pointermove", (event) => {
+      if (event.pointerId !== activePointerId) return;
+      const distance = event.clientX - pointerStartX;
+      if (Math.abs(distance) > 6) dragged = true;
+      offset = Math.max(0, pointerStartOffset - distance);
+      render();
+    });
+    viewport.addEventListener("pointerup", (event) => {
+      if (event.pointerId !== activePointerId) return;
+      const distance = event.clientX - pointerStartX;
+      if (dragged && Math.abs(distance) > 40) move(distance > 0 ? -1 : 1);
+      suppressClick = dragged;
+      activePointerId = null;
+      viewport.classList.remove("is-dragging");
+      resume("drag");
+    });
+    viewport.addEventListener("pointercancel", () => {
+      activePointerId = null;
+      viewport.classList.remove("is-dragging");
+      resume("drag");
+    });
+    carousel.addEventListener("click", (event) => {
+      if (!suppressClick) return;
+      event.preventDefault();
+      event.stopPropagation();
+      suppressClick = false;
+    }, true);
+    previousButton?.addEventListener("click", () => move(-1));
+    nextButton?.addEventListener("click", () => move(1));
+    carousel.addEventListener("keydown", (event) => {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+      pause("keyboard");
+      move(event.key === "ArrowLeft" ? -1 : 1);
+      window.setTimeout(() => resume("keyboard"), 600);
+    });
+    motionQuery.addEventListener?.("change", (event) => {
+      if (event.matches) pause("reduced");
+      else resume("reduced");
+    });
+    if (motionQuery.matches) pause("reduced");
+    window.addEventListener("resize", render);
+    window.requestAnimationFrame(animate);
+  }
+
+  initFeaturedCarousel();
   updateThemeLabel();
 }());
