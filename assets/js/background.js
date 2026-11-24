@@ -10,10 +10,10 @@
   if (!ctx) return;
 
   const settings = {
-    spacing: 32,
-    radius: 1.25,
+    spacing: 42,
+    radius: 1.7,
     interactionRadius: 140,
-    strength: 22,
+    strength: 50,
     ease: 0.09,
     maxDpr: 2
   };

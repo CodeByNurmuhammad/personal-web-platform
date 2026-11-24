@@ -477,3 +477,91 @@ main,
     position: relative;
     z-index: 6;
 }
+
+/* Article-specific presentation for the Halo feature. */
+.container.article-content.halo-article { max-width: 52rem; }
+.article-content.halo-article > * { max-width: none; }
+.halo-article .halo-back-link { display: inline-block; margin-bottom: var(--space-4); text-decoration: none; }
+.halo-article .halo-hero { padding: 0 0 var(--space-3); }
+.halo-article .tag {
+  display: inline-block;
+  margin: 0;
+  padding: 0.25rem 0.65rem;
+  border: 0;
+  background: var(--color-accent);
+  color: var(--color-surface);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.halo-article h1 {
+  margin: var(--space-2) 0;
+  font-size: clamp(2.2rem, 6vw, 3.25rem);
+  letter-spacing: -0.035em;
+}
+.halo-article h1 span,
+.halo-article h2 i { color: var(--color-accent); }
+.halo-article .lead { max-width: 43rem; color: var(--color-muted); font-size: clamp(1.1rem, 2.5vw, 1.25rem); }
+.halo-article .article-meta { margin: 0 0 var(--space-3); color: var(--color-muted); font-size: 0.9rem; }
+.halo-article h2 {
+  margin: var(--space-5) 0 var(--space-2);
+  font-size: clamp(1.65rem, 4vw, 2rem);
+  letter-spacing: -0.02em;
+}
+.halo-article h2 i {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.halo-article .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(9rem, 100%), 1fr)); gap: var(--space-2); margin: var(--space-3) 0; }
+.halo-article .stat { padding: var(--space-3); border: 1px solid var(--color-accent); border-radius: var(--radius-md); background: var(--color-surface); text-align: center; }
+.halo-article .stat b { display: block; color: var(--color-accent); font-size: clamp(1.4rem, 4vw, 1.8rem); line-height: 1.2; overflow-wrap: anywhere; }
+.halo-article .stat small { color: var(--color-muted); }
+.halo-article .box { margin: var(--space-3) 0; padding: var(--space-2) var(--space-3); border-left: 4px solid var(--color-accent); border-radius: var(--radius-sm); background: var(--color-surface-muted); }
+.halo-article .cmp { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); margin: var(--space-3) 0; }
+.halo-article .comparison-card { padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); }
+.halo-article .comparison-card.on { border-color: var(--color-accent); background: var(--color-surface-muted); }
+.halo-article .comparison-card h3 { margin: 0 0 var(--space-1); color: var(--color-accent); font-size: 1.05rem; }
+.halo-article .comparison-card ul { margin: var(--space-1) 0 0; padding-left: 1.2rem; color: var(--color-muted); font-size: 0.95rem; }
+.halo-article .flow { display: flex; flex-direction: column; gap: 0; margin: var(--space-3) 0; }
+.halo-article .step { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-3); border: 1px solid var(--color-accent); border-radius: var(--radius-md); background: var(--color-surface); }
+.halo-article .step.ai { background: var(--color-accent); color: var(--color-surface); }
+.halo-article .step .n { display: grid; flex: none; width: 2rem; height: 2rem; place-items: center; border-radius: 50%; background: var(--color-surface-muted); color: var(--color-accent); font-weight: 700; }
+.halo-article .step small { display: block; color: var(--color-muted); font-size: 0.9rem; line-height: 1.4; }
+.halo-article .step.ai small { color: color-mix(in srgb, var(--color-surface) 82%, var(--color-accent)); }
+.halo-article .step.ai .n { background: var(--color-surface); }
+.halo-article .arrow { color: var(--color-accent); font-size: 1.25rem; line-height: 1.2; text-align: center; }
+.halo-article .scroll { max-width: 100%; margin: var(--space-3) 0; overflow-x: auto; border: 1px solid var(--color-border); border-radius: var(--radius-md); }
+.halo-article table { width: 100%; min-width: 32rem; margin: 0; border-collapse: collapse; font-size: 0.92rem; }
+.halo-article th { padding: 0.65rem 0.85rem; background: var(--color-accent); color: var(--color-surface); text-align: left; }
+.halo-article td { padding: 0.65rem 0.85rem; border-top: 1px solid var(--color-border); }
+.halo-article tr:nth-child(even) td { background: var(--color-surface-muted); }
+.halo-article .bad { color: #c2410c; font-weight: 700; }
+.halo-article .good { color: #1f8a5b; font-weight: 700; }
+.halo-article .tl { margin: var(--space-3) 0 var(--space-3) 0.5rem; padding-left: var(--space-3); border-left: 3px solid var(--color-accent); }
+.halo-article .tl div { position: relative; margin-bottom: var(--space-2); }
+.halo-article .tl div::before { position: absolute; top: 0.35rem; left: calc(-1 * var(--space-3) - 0.4rem); width: 0.8rem; height: 0.8rem; border: 3px solid var(--color-accent); border-radius: 50%; background: var(--color-bg); content: ""; }
+.halo-article .tl b { color: var(--color-accent); }
+.halo-article .take { display: grid; gap: var(--space-2); margin: var(--space-3) 0; counter-reset: halo-take; }
+.halo-article .take div { position: relative; padding: var(--space-2) var(--space-2) var(--space-2) 3.5rem; border: 1px solid var(--color-border); border-radius: var(--radius-md); counter-increment: halo-take; }
+.halo-article .take div::before { position: absolute; top: 0.65rem; left: 0.75rem; display: grid; width: 1.8rem; height: 1.8rem; place-items: center; border-radius: 50%; background: var(--color-accent); color: var(--color-surface); content: counter(halo-take); font-weight: 700; }
+.halo-article .note { margin-top: var(--space-5); padding-top: var(--space-2); border-top: 1px solid var(--color-border); color: var(--color-muted); font-size: 0.9rem; }
+.halo-article svg { display: block; width: 100%; height: auto; }
+.halo-article svg g[fill="#1b2433"] { fill: var(--color-text); }
+.halo-article svg text[fill="#1b2433"] { fill: var(--color-text); }
+.halo-article svg text[fill="#5b6677"] { fill: var(--color-muted); }
+.halo-article svg text[fill="#2457a6"] { fill: var(--color-accent); }
+.halo-article svg rect[fill="#2457a6"] { fill: var(--color-accent); }
+.halo-article svg rect[fill="#c9d8f0"],
+.halo-article svg line[stroke="#c9d8f0"] { fill: var(--color-surface-muted); stroke: var(--color-border); }
+
+@media (max-width: 575.98px) {
+  .halo-article .cmp { grid-template-columns: 1fr; }
+  .halo-article .halo-back-link { margin-bottom: var(--space-3); }
+  .halo-article table { min-width: 29rem; }
+}
